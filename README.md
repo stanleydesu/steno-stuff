@@ -1,3 +1,3 @@
-# steno-dictionary
+# steno-stuff
 
-My stenography dictionaries.
+My stenography stuff.
