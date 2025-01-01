@@ -8,5 +8,5 @@ user.json: my personal entries
 
 main.json: original Plover dictionary with some small changes
 
-
-[My Uni v4](/images/uni_v4.png)
+My Uni v4:
+![My Uni v4](/images/uni_v4.png)
