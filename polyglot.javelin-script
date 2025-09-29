@@ -24,7 +24,7 @@
 // |--------+------+------+------+------+------|        |------+------+------+------+------+--------|
 // | Shift  |   Z  |   X  |   C  |   V  |   B  |        |   N  |   M  | ,  < | .  > | /  ? |Shf/Sten|
 // `----------------------+------+------+------+        |------+------+------+----------------------'
-//                        | Meta | Space|  Nav |        |  Sym |Alt/Sp|Fn/Ent|
+//                        | Meta | Space|  Nav |        |  Sym | Alt  |Fn/Ent|
 //                        `--------------------'        `--------------------'
 //
 // For keys marked with two options, holding or pressing with other keys will cause the first option
@@ -440,10 +440,10 @@ var hueSpread = 4;
 var hueShift = 38500;
 var hueShiftChange = 65536 / 64;
 var svChange = 17;
-var brightness = 255 - (svChange * 4);
+var brightness = 255 - (svChange * 8);
 var saturation = 255;
 var shouldToggleRgb = 0; // whether to change rgb mode when changing from QWERTY to STENO (and vice versa)
-var isConstantRgb = 0; // whether to display a constant rgb value or to use rainbow
+var isConstantRgb = 1; // whether to display a constant rgb value or to use rainbow
 
 const KEY_STENO = 0x200;
 const KEY_SHIFT = 0x100;
@@ -857,17 +857,11 @@ func onRelease39() {
   }
 }
 
-var timer40;
 func onPress40() {
   handlePress(SC_L_ALT, SK_U | KEY_STENO, SC_NONE, SC_NONE, SC_SPACE);
-  timer40 = getTime();
-  otherPressCount = 0;
 }
 func onRelease40() {
   handleRelease(SC_L_ALT, SK_U | KEY_STENO, SC_NONE, SC_NONE, SC_SPACE);
-  if ((layer | otherPressCount) == 0 && getTime() - timer40 < TAP_THRESHOLD) {
-    tapScanCode(SC_SPACE);
-  }
 }
 
 var timer41;
